@@ -13,17 +13,26 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ShopPractic
+namespace ShopPractic.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для RegistrationPage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class RegistrationPage : Page
     {
-        public MainWindow()
+        public RegistrationPage()
         {
             InitializeComponent();
-            frame_auto_reg.NavigationService.Navigate(new AutorisationPage());
+        }
+
+        private void Btn_registration_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Btn_goBack_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
         }
     }
 }

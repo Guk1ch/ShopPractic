@@ -13,17 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ShopPractic
+namespace ShopPractic.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для AddProductPage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class AddProductPage : Page
     {
-        public MainWindow()
+        public AddProductPage()
         {
             InitializeComponent();
-            frame_auto_reg.NavigationService.Navigate(new AutorisationPage());
         }
     }
 }

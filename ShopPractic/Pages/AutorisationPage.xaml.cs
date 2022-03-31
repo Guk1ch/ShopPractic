@@ -16,14 +16,22 @@ using System.Windows.Shapes;
 namespace ShopPractic
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для AutorisationPage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class AutorisationPage : Page
     {
-        public MainWindow()
+        public AutorisationPage()
         {
             InitializeComponent();
-            frame_auto_reg.NavigationService.Navigate(new AutorisationPage());
         }
+        private void Btn_Reg_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Pages.RegistrationPage());
+        }
+        private void Btn_Login_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
     }
 }
