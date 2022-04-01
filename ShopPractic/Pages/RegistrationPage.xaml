@@ -23,17 +23,31 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
         <TextBlock Text="Регистрация" FontSize="48" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top"  Foreground="#FFAD7261" FontFamily="Arial"/>
         <TextBlock Text="ФИО" FontSize="40" Grid.Column="0" Grid.Row="1"  HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="#FFAD7261" FontFamily="Arial"/>
         <TextBlock Text="Логин" FontSize="40"  Grid.Column="0" Grid.Row="2"  HorizontalAlignment="Left" VerticalAlignment="Center"  Foreground="#FFAD7261" FontFamily="Arial"/>
         <TextBlock Text="Пароль" FontSize="40" Grid.Column="0" Grid.Row="3"  HorizontalAlignment="Left" VerticalAlignment="Center"  Foreground="#FFAD7261" FontFamily="Arial"/>
-
+        <TextBlock Text="Пол" FontSize="40" Grid.Column="0" Grid.Row="4"  HorizontalAlignment="Left" VerticalAlignment="Center"  Foreground="#FFAD7261" FontFamily="Arial"/>
+        <TextBlock Text="Номер телефона" FontSize="40" Grid.Column="0" Grid.Row="5"  HorizontalAlignment="Left" VerticalAlignment="Center"  Foreground="#FFAD7261" FontFamily="Arial"/>
         <TextBox Grid.Column="1" Width="370" Height="60" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="2" x:Name="login_txt" FontFamily="Arial" FontSize="30" />
         <TextBox Grid.Column="1" Width="370" Height="60" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="1" x:Name="name_txt" FontFamily="Arial" FontSize="30" />
         <TextBox Grid.Column="1" Width="370" Height="60" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="3" x:Name="password_txt" FontFamily="Arial" FontSize="30" />
-       
-        <Button x:Name="Regist" Content="Зарегестрироваться" Grid.Column="0" Grid.Row="4"   HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="250" Height="80" FontSize="24" FontFamily="Arial" Click="Btn_registration_Click" BorderBrush="{x:Null}" Foreground="White" Background="#FFAD7261"/>
-        <Button Content="Вернуться" Grid.Column="1" Grid.Row="4"   HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="250" Height="80" FontFamily="Arial" FontSize="24" Click="Btn_goBack_Click" Background="#FFAD7261" BorderBrush="{x:Null}" Foreground="White"/>
+        <ComboBox Grid.Column="1" Width="370" Height="60" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="4" x:Name="gender" FontSize="30" FontFamily="Arial" BorderBrush="White">
+            <ComboBox.Background>
+                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                    <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </ComboBox.Background>
+            <TextBlock Text="Мужчина"/>
+            <TextBlock Text="Женщина"/>
+        </ComboBox>
+        <TextBox Grid.Column="1" Width="370" Height="60" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="5" x:Name="Phone_txt" FontFamily="Arial" FontSize="30" />
+
+        <Button x:Name="Regist" Content="Зарегестрироваться" Grid.Column="0" Grid.Row="6"   HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="250" Height="60" FontSize="24" FontFamily="Arial" Click="Btn_registration_Click" BorderBrush="{x:Null}" Foreground="White" Background="#FFAD7261"/>
+        <Button Content="Вернуться" Grid.Column="1" Grid.Row="6"   HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="250" Height="60" FontFamily="Arial" FontSize="24" Click="Btn_goBack_Click" Background="#FFAD7261" BorderBrush="{x:Null}" Foreground="White"/>
     </Grid>
 </Page>
