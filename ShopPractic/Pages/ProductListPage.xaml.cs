@@ -24,5 +24,10 @@ namespace ShopPractic.Pages
         {
             InitializeComponent();
         }
+
+        private void tb_search_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

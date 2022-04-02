@@ -9,6 +9,53 @@
       Title="ProductListPage">
 
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Image Source="/img/logo.png" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left"/>
+
+        <ListView x:Name="prod" ItemsSource="{Binding products}" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="1" Grid.RowSpan="7">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="№" DisplayMemberBinding="{Binding Id}"/>
+                    <GridViewColumn Header="Наименование"  DisplayMemberBinding="{Binding Name}"/>
+                    <GridViewColumn Header="Описание"  DisplayMemberBinding="{Binding Description}"/>
+                    <GridViewColumn Header="Дата добавления" DisplayMemberBinding="{Binding AddDate}"/>
+                    <GridViewColumn Header="Ед.измерения" DisplayMemberBinding="{Binding Unit.Name}"/>
+
+                    <GridViewColumn Header="Страна">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <ListView ItemsSource="{Binding ProductCountry}">
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <Label Height="35" Width="250" Content="{Binding Country.Name}" Background="{Binding Country.Color}"/>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <!--<TextBox x:Name="tb_search" Grid.Row="0" Grid.Column="3" Height="30" VerticalAlignment="Top" SelectionChanged="tb_search_SelectionChanged" />-->
+
     </Grid>
 </Page>

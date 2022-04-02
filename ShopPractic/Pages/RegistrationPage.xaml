@@ -36,16 +36,10 @@
         <TextBox Grid.Column="1" Width="370" Height="60" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="1" x:Name="name_txt" FontFamily="Arial" FontSize="30" />
         <TextBox Grid.Column="1" Width="370" Height="60" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="3" x:Name="password_txt" FontFamily="Arial" FontSize="30" />
         <ComboBox Grid.Column="1" Width="370" Height="60" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="4" x:Name="gender" FontSize="30" FontFamily="Arial" BorderBrush="White">
-            <ComboBox.Background>
-                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
-                    <GradientStop Color="#FFF0F0F0" Offset="0"/>
-                    <GradientStop Color="White" Offset="1"/>
-                </LinearGradientBrush>
-            </ComboBox.Background>
             <TextBlock Text="Мужчина"/>
             <TextBlock Text="Женщина"/>
         </ComboBox>
-        <TextBox Grid.Column="1" Width="370" Height="60" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="5" x:Name="Phone_txt" FontFamily="Arial" FontSize="30" />
+        <TextBox Grid.Column="1" Width="370" Height="60" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="5" x:Name="Phone_txt" FontFamily="Arial" FontSize="30" MaxLength="11" PreviewTextInput="Phone_txt_TextInput"/>
 
         <Button x:Name="Regist" Content="Зарегестрироваться" Grid.Column="0" Grid.Row="6"   HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="250" Height="60" FontSize="24" FontFamily="Arial" Click="Btn_registration_Click" BorderBrush="{x:Null}" Foreground="White" Background="#FFAD7261"/>
         <Button Content="Вернуться" Grid.Column="1" Grid.Row="6"   HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="250" Height="60" FontFamily="Arial" FontSize="24" Click="Btn_goBack_Click" Background="#FFAD7261" BorderBrush="{x:Null}" Foreground="White"/>
