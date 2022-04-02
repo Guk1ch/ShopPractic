@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Collections.ObjectModel;
+using ShopPractic.DataBase;
 
 namespace ShopPractic.Pages
 {
@@ -20,9 +22,14 @@ namespace ShopPractic.Pages
     /// </summary>
     public partial class ProductListPage : Page
     {
+        public static ObservableCollection<DataBase.Product> products { get; set; }
         public ProductListPage()
         {
+            products = new ObservableCollection<DataBase.Product>(BD_Connection.connection.Product.ToList());
             InitializeComponent();
+
+            var Prod = new Product();
+            this.DataContext = this;
         }
 
         private void tb_search_SelectionChanged(object sender, RoutedEventArgs e)
