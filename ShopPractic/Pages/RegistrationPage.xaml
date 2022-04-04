@@ -43,5 +43,7 @@
 
         <Button x:Name="Regist" Content="Зарегестрироваться" Grid.Column="0" Grid.Row="6"   HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="250" Height="60" FontSize="24" FontFamily="Arial" Click="Btn_registration_Click" BorderBrush="{x:Null}" Foreground="White" Background="#FFAD7261"/>
         <Button Content="Вернуться" Grid.Column="1" Grid.Row="6"   HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="250" Height="60" FontFamily="Arial" FontSize="24" Click="Btn_goBack_Click" Background="#FFAD7261" BorderBrush="{x:Null}" Foreground="White"/>
+
+        <Image Source="/img/logo.png" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left"/>
     </Grid>
 </Page>

@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ShopPractic.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="800" d:DesignWidth="1000"
       Title="ProductListPage">
 
     <Grid>
@@ -16,6 +16,8 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
@@ -41,9 +43,9 @@
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <ListView ItemsSource="{Binding ProductCountry}" Background="#FFFAB7A4" Foreground="White" BorderBrush="{x:Null}">
-                                    <ListView.ItemTemplate>
+                                    <ListView.ItemTemplate >
                                         <DataTemplate>
-                                            <Label Height="35" Width="250" Content="{Binding Country.Name}" Background="{Binding Country.Color}"/>
+                                            <Label Height="35" Width="100" HorizontalAlignment="Center" Content="{Binding Country.Name}" Background="{Binding Country.Color}"/>
                                         </DataTemplate>
                                     </ListView.ItemTemplate>
                                 </ListView>
