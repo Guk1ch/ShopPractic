@@ -9,6 +9,32 @@
       Title="AddProductPage">
 
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBlock x:Name="NameProd" Text="Название" FontSize="40"  HorizontalAlignment="Left" VerticalAlignment="Center"  Grid.Column="0" Grid.Row="2" Foreground="#FFAD7261" FontFamily="Arial"/>
+        <TextBlock x:Name="OpisProd" Text="Описание" HorizontalAlignment="Left" VerticalAlignment="Center"  FontSize="40" Grid.Column="0" Grid.Row="3" Foreground="#FFAD7261" FontFamily="Arial"/>
+
+        <TextBox x:Name="txt_NameProd"  Width="370" Height="60" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="1" Grid.Row="2" FontSize="30" FontFamily="Arial" Background="White"/>
+        <TextBox x:Name="txt_OpisProd"  Width="370" Height="60" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="1" Grid.Row="3" FontSize="30" FontFamily="Arial" Background="White"/>
+
+
+        <Button Content="Назад" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="250" Height="60" FontFamily="Arial" FontSize="28" Click="Btn_Back_Click" Background="#FFAD7261" BorderBrush="{x:Null}" Foreground="White" />
+        <Button Content="Сохранить" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="250" Height="60" Grid.Row="4" FontFamily="Arial" FontSize="28" Click="Btn_Save_Click" Background="#FFAD7261" BorderBrush="{x:Null}" Foreground="White" />
+        <Button Content="Добавить картинку" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="250" Height="60" Grid.Row="5" FontFamily="Arial" FontSize="22" Click="Btn_ChangePhoto_Click" Background="#FFAD7261" Foreground="White" BorderBrush="{x:Null}" />
+
+        <Image x:Name="Logo" Source="/img/logo.png" Grid.Column="0" Grid.Row="0" Width="150" Height="100" HorizontalAlignment="Left" VerticalAlignment="Top"/>
     </Grid>
 </Page>

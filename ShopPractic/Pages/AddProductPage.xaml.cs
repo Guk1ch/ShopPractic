@@ -24,5 +24,20 @@ namespace ShopPractic.Pages
         {
             InitializeComponent();
         }
+
+        private void Btn_Back_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Btn_Save_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
+        }
+
+        private void Btn_ChangePhoto_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

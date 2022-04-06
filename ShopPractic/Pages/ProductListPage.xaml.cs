@@ -43,5 +43,10 @@ namespace ShopPractic.Pages
 
             NavigationService.Navigate(new EditProductPage(n));
         }
+
+        private void Btn_Add_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AddProductPage());
+        }
     }
 }
