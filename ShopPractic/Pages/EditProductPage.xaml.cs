@@ -57,5 +57,10 @@ namespace ShopPractic.Pages
         {
             NavigationService.GoBack();
         }
+
+        private void Btn_Del_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Не надо дядя " + " НЯЯ!"); 
+        }
     }
 }
