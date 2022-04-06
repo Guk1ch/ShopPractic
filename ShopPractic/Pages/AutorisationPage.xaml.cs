@@ -26,6 +26,7 @@ namespace ShopPractic
         public AutorisationPage()
         {
             InitializeComponent();
+            txt_login.Text = Properties.Settings.Default.Login;
         }
         private void Btn_Reg_Click(object sender, RoutedEventArgs e)
         {
@@ -37,6 +38,16 @@ namespace ShopPractic
             var z = users.Where(a => a.Login == txt_login.Text && a.Password == txt_password.Password).FirstOrDefault();
             if (z != null)
             {
+                if (RememberMe.IsChecked.GetValueOrDefault())
+                {
+                    Properties.Settings.Default.Login = txt_login.Text;
+                    Properties.Settings.Default.Save();
+                }
+                else 
+                {
+                    Properties.Settings.Default.Login = null;
+                    Properties.Settings.Default.Save();
+                }
                 NavigationService.Navigate(new Pages.ProductListPage());
             }
             else

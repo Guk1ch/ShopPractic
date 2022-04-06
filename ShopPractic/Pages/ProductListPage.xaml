@@ -30,7 +30,7 @@
 
         <Image Source="/img/logo.png" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left"/>
 
-        <ListView x:Name="prod" ItemsSource="{Binding products}" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="1" Grid.RowSpan="7" Background="#FFFAB7A4" Foreground="White" BorderBrush="{x:Null}">
+        <ListView x:Name="prod" ItemsSource="{Binding products}" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="1" Grid.RowSpan="7" Background="#FFFAB7A4" Foreground="White" BorderBrush="{x:Null}" SelectionChanged="prod_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="№" DisplayMemberBinding="{Binding Id}"/>

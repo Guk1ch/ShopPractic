@@ -9,6 +9,27 @@
       Title="EditProductPage">
 
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
         
+        
+        
+        <Button Content="Сохранить" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="250" Height="60" Grid.Row="4" FontFamily="Arial" FontSize="28" Click="Btn_Save_Click" Background="#FFAD7261" BorderBrush="{x:Null}" Foreground="White" />
+        <Button Content="Изменить картинку" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="250" Height="60" Grid.Row="5" FontFamily="Arial" FontSize="22" Click="Btn_ChangePhoto_Click" Background="#FFAD7261" Foreground="White" BorderBrush="{x:Null}" />
+
+
     </Grid>
 </Page>
