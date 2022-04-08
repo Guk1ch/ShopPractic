@@ -14,6 +14,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ShopPractic.DataBase;
+using System.Collections.ObjectModel;
+
 
 namespace ShopPractic.Pages
 {
@@ -23,14 +26,29 @@ namespace ShopPractic.Pages
     public partial class EditProductPage : Page
     {
         public static DataBase.Product constProd;
+        public static ObservableCollection<Country> country { get; set; }
         public EditProductPage(DataBase.Product product)
         {
             InitializeComponent();
+            country = new ObservableCollection<Country>(BD_Connection.connection.Country.ToList());
+            CountryCb.ItemsSource = country;
+            CountryCb.DisplayMemberPath = "Name";
+
             constProd = product;
             this.DataContext = constProd;
             txt_ID.Text = product.Id.ToString();
             txt_NameProd.Text = product.Name;
             txt_OpisProd.Text = product.Description;
+            if (constProd.Id != 0)
+            {
+                AddCountryBtn.Visibility = Visibility.Visible;
+                DelCountryBtn.Visibility = Visibility.Visible;
+                AddCountryBtn.Visibility = Visibility.Visible;
+                DelCountryBtn.Visibility = Visibility.Visible;
+                CountryLabel.Visibility = Visibility.Visible;
+                CountryCb.Visibility = Visibility.Visible;
+                CountryLv.Visibility = Visibility.Visible;
+            }
         }
 
         private void Btn_Save_Click(object sender, RoutedEventArgs e)
@@ -61,6 +79,42 @@ namespace ShopPractic.Pages
         private void Btn_Del_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Не надо дядя " + " НЯЯ!"); 
+        }
+
+        private void DelCountryBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (CountryLv.SelectedItem != null)
+            {
+                var selProductCountry = DataBase.BD_Connection.connection.ProductCountry.ToList().Find(c => c.ProductId == constProd.Id && c.CountryId == (CountryLv.SelectedItem as ProductCountry).CountryId);
+                DataBase.BD_Connection.connection.ProductCountry.Remove(selProductCountry);
+                DataBase.BD_Connection.connection.SaveChanges();
+                UpdateCountryList();
+
+            }
+
+        }
+
+        private void AddCountryBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (CountryCb.SelectedIndex >= 0) 
+            {
+                var ProdCountry = new ProductCountry();
+                var sel = CountryCb.SelectedItem as Country;
+                ProdCountry.ProductId = constProd.Id;
+                ProdCountry.CountryId = sel.Id;
+                var isCountry = DataBase.BD_Connection.connection.ProductCountry.Where(c => c.CountryId == sel.Id && c.ProductId == constProd.Id).Count();
+                if (isCountry == 0)
+                {
+                    DataBase.BD_Connection.connection.ProductCountry.Add(ProdCountry);
+                    DataBase.BD_Connection.connection.SaveChanges();
+                    UpdateCountryList();
+                }
+            }
+
+        }
+        private void UpdateCountryList()
+        {
+            CountryLv.ItemsSource = DataBase.BD_Connection.connection.ProductCountry.Where(e => e.ProductId == constProd.Id).ToList();
         }
     }
 }

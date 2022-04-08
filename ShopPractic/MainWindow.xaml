@@ -9,12 +9,12 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
-            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="6*"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition/>
-            <RowDefinition Height="6*"/>
+            <RowDefinition Height="9*"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="1" Grid.Column="1">
