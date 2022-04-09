@@ -49,6 +49,19 @@ namespace ShopPractic.Pages
                 CountryCb.Visibility = Visibility.Visible;
                 CountryLv.Visibility = Visibility.Visible;
             }
+            if(product.UnitId == 2)
+            {
+                Cb_Unit.SelectedIndex = 0;
+            }
+            else if (product.UnitId == 1)
+            {
+                Cb_Unit.SelectedIndex = 1;
+            }
+            else if (product.UnitId == 3)
+            {
+                Cb_Unit.SelectedIndex = 2;
+            }
+
         }
 
         private void Btn_Save_Click(object sender, RoutedEventArgs e)
