@@ -91,7 +91,10 @@ namespace ShopPractic.Pages
 
         private void Btn_Del_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Не надо дядя " + " НЯЯ!"); 
+            MessageBox.Show("Не надо дядя " + " НЯЯ!");
+            constProd.IsDelete = true;
+            BD_Connection.connection.SaveChanges();
+            NavigationService.Navigate(new Pages.ProductListPage());
         }
 
         private void DelCountryBtn_Click(object sender, RoutedEventArgs e)

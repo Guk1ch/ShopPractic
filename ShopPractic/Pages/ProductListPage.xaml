@@ -29,7 +29,7 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Button x:Name="Add" Grid.Column="2" Grid.Row="0" Content="Добавить" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="250" Height="60"  FontFamily="Arial" FontSize="28" Click="Btn_Add_Click" Background="#FFAD7261" BorderBrush="{x:Null}" Foreground="White"/>
+        <Button x:Name="Add" Grid.Column="2" Grid.Row="0" Content="Добавить" HorizontalAlignment="Center" VerticalAlignment="Bottom" Visibility="Visible" Width="250" Height="60"  FontFamily="Arial" FontSize="28" Click="Btn_Add_Click" Background="#FFAD7261" BorderBrush="{x:Null}" Foreground="White"/>
 
         <Image Source="/img/logo.png" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left"/>
 
