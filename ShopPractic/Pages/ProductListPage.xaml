@@ -14,6 +14,8 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -31,14 +33,21 @@
 
         <Image Source="/img/logo.png" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left"/>
 
-        <ListView x:Name="prod" ItemsSource="{Binding products}" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="1" Grid.RowSpan="7" Background="#FFFAB7A4" Foreground="White" BorderBrush="{x:Null}" SelectionChanged="prod_SelectionChanged">
+        <ListView x:Name="prod" ItemsSource="{Binding products}" Grid.Column="0" Grid.ColumnSpan="6" Grid.Row="1" Grid.RowSpan="9" Background="#FFFAB7A4" Foreground="White" BorderBrush="{x:Null}" SelectionChanged="prod_SelectionChanged">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="№" DisplayMemberBinding="{Binding Id}"/>
+                    <GridViewColumn Header="№" DisplayMemberBinding="{Binding Id}" Width="28"/>
+                    <GridViewColumn Header="Фото">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Source="{Binding Photo}" Height="70"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
                     <GridViewColumn Header="Наименование"  DisplayMemberBinding="{Binding Name}"/>
                     <GridViewColumn Header="Описание"  DisplayMemberBinding="{Binding Description}"/>
                     <GridViewColumn Header="Дата добавления" DisplayMemberBinding="{Binding AddDate}"/>
-                    <GridViewColumn Header="Ед.измерения" DisplayMemberBinding="{Binding Unit.Name}"/>
+                    <GridViewColumn Header="Ед.измерения" DisplayMemberBinding="{Binding Unit.Name}" Width="35"/>
 
                     <GridViewColumn Header="Страна">
                         <GridViewColumn.CellTemplate>
@@ -58,7 +67,31 @@
             </ListView.View>
         </ListView>
 
-        <!--<TextBox x:Name="tb_search" Grid.Row="0" Grid.Column="3" Height="30" VerticalAlignment="Top" SelectionChanged="tb_search_SelectionChanged" />-->
+        <TextBox x:Name="tb_search"  Grid.Row="0" Grid.Column="1" Height="30" VerticalAlignment="Center" SelectionChanged="tb_search_SelectionChanged" />
+        <ComboBox Name="cb_unit" Grid.Column="3" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="120" SelectionChanged="cb_unit_SelectionChanged"/>
+        <ComboBox Name="cb_alf" Grid.Column="3" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Top" Width="120" SelectionChanged="cb_unit_SelectionChanged">
+            <ComboBoxItem Content="Сбросить"></ComboBoxItem>
+            <ComboBoxItem Content="от А до Я"></ComboBoxItem>
+            <ComboBoxItem Content="от Я до А"></ComboBoxItem>
+        </ComboBox>
+        <ComboBox Name="cb_date" Grid.Column="4" Grid.Row="0" Width="120" HorizontalAlignment="Left" VerticalAlignment="Bottom"  SelectionChanged="cb_unit_SelectionChanged">
+            <ComboBoxItem Content="Сбросить"/>
+            <ComboBoxItem Content="От старых к новым"/>
+            <ComboBoxItem Content="От новых к старым"/>
+        </ComboBox>
+        <CheckBox Name="cb_mounth" Content="В этом месяце" Grid.Column="4" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Click="cb_mounth_Click"/>
+
+        <ComboBox Name="cb_count" Grid.Row="0" Grid.Column="5" Width="70" Height="20" HorizontalAlignment="Center" VerticalAlignment="Bottom"  SelectionChanged="cb_count_SelectionChanged">
+            <ComboBoxItem Content="Все"/>
+            <ComboBoxItem Content="2"/>
+            <ComboBoxItem Content="4"/>
+            <ComboBoxItem Content="6"/>
+            <ComboBoxItem Content="10"/>
+        </ComboBox>
+        <Button x:Name="btn_next" Content="Вперед" Grid.Column="5" Grid.Row="0" Width="30" HorizontalAlignment="Right" Click="btn_next_Click" Visibility="Hidden"/>
+        <Button x:Name="btn_back_list" Content="Назад" Grid.Column="5" Grid.Row="0" Width="30" HorizontalAlignment="Left" Click="btn_back_list_Click" Visibility="Hidden"/>
+        <TextBlock x:Name="tb_count" Foreground="#FFAD7261" Width="50" Grid.Row="0" Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Top" Visibility="Hidden"/>
+
 
     </Grid>
 </Page>

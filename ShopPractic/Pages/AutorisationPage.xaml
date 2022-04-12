@@ -31,7 +31,7 @@
         <TextBox x:Name="txt_login"  Width="370" Height="60" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="1" Grid.Row="1" FontSize="30" FontFamily="Arial" Background="White"/>
         <PasswordBox x:Name="txt_password" Width="370" Height="60" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="1" Grid.Row="2" Background="White"/>
 
-        <CheckBox x:Name="RememberMe" Content="Запомнить Меня " Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" HorizontalAlignment="Center"  VerticalAlignment="Center" FontSize="20" FontFamily="Arial" Foreground="#FFAD7261"/>
+        <CheckBox x:Name="RememberMe" IsChecked="True" Content="Запомнить Меня " Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" HorizontalAlignment="Center"  VerticalAlignment="Center" FontSize="20" FontFamily="Arial" Foreground="#FFAD7261"/>
         <Button Content="Войти" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="250" Height="80" Grid.Row="3" FontFamily="Arial" FontSize="28" Click="Btn_Login_Click" Background="#FFAD7261" BorderBrush="{x:Null}" Foreground="White" />
         <Button Content="Зарегистрироваться" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="250" Height="80" Grid.Row="3" FontFamily="Arial" FontSize="22" Click="Btn_Reg_Click" Background="#FFAD7261" Foreground="White" BorderBrush="{x:Null}" />
 
