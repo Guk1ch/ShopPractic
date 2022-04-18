@@ -86,7 +86,7 @@ namespace ShopPractic.Pages
 
         private void Btn_Back_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.GoBack();
+            NavigationService.Navigate(new ProductListPage());
         }
 
         private void Btn_Del_Click(object sender, RoutedEventArgs e)

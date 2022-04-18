@@ -28,16 +28,20 @@ namespace ShopPractic.Pages
         public static ObservableCollection<DataBase.Product> products { get; set; }
         public ProductListPage()
         {
-            products = new ObservableCollection<DataBase.Product>(BD_Connection.connection.Product.ToList());
+            
             InitializeComponent();
+            products = new ObservableCollection<DataBase.Product>(BD_Connection.connection.Product.Where(a => a.IsDelete != true).ToList());
+            
             var Prod = new Product();
+            this.DataContext = this;
 
             var allUnit = new ObservableCollection<DataBase.Unit >(BD_Connection.connection.Unit.ToList());
             allUnit.Insert(0, new DataBase.Unit() { Id = -1, Name = "Все" });
+            
             cb_unit.ItemsSource = allUnit;
             cb_unit.DisplayMemberPath = "Name";
 
-            this.DataContext = this;
+            
           
         }
 
@@ -122,7 +126,7 @@ namespace ShopPractic.Pages
                 }
             }
 
-            prod.ItemsSource = filterProd;
+            prod.ItemsSource = filterProd.ToList();
         }
         private void cb_unit_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

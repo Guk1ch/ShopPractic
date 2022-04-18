@@ -164,6 +164,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\ListOrderPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ProdIntakePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\ProductListPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -172,16 +180,29 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\RegOrderPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Pages\EditProductPage.xaml.cs">
       <DependentUpon>EditProductPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ListOrderPage.xaml.cs">
+      <DependentUpon>ListOrderPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ProdIntakePage.xaml.cs">
+      <DependentUpon>ProdIntakePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\ProductListPage.xaml.cs">
       <DependentUpon>ProductListPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\RegistrationPage.xaml.cs">
       <DependentUpon>RegistrationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\RegOrderPage.xaml.cs">
+      <DependentUpon>RegOrderPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
