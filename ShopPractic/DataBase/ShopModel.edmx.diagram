@@ -38,6 +38,7 @@
         <AssociationConnector Association="ShopModel.FK_ProductIntakeProduct_StatusIntake" ManuallyRouted="false" />
         <AssociationConnector Association="ShopModel.FK_User_Role" ManuallyRouted="false" />
         <AssociationConnector Association="ShopModel.FK_Worker_User" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopModel.FK_ProductIntake_StatusIntake" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

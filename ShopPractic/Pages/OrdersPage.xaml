@@ -32,5 +32,17 @@
         <Image Source="/img/logo.png" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left"/>
         <Button x:Name="btn_AddOrd" Content="Добавить" Grid.Column="1" Grid.Row="0" VerticalAlignment="Top"  Background="#FFAD7261" BorderBrush="{x:Null}" Foreground="White" FontFamily="Arial" Click="btn_AddOrd_Click"/>
         <Button x:Name="btn_Back" Content="Назад"  Grid.Column="1" Grid.Row="0" VerticalAlignment="Bottom"  Background="#FFAD7261" BorderBrush="{x:Null}" Foreground="White" FontFamily="Arial" Click="btn_Back_Click"/>
+
+        <DataGrid x:Name="dgOrders" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="6" Grid.RowSpan="5" ItemsSource="{Binding Orders}" Background="#FFFAB7A4" Foreground="Black" BorderBrush="{x:Null}" 
+                  AutoGenerateColumns="False" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Идентификатор" Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="Дата" Binding="{Binding Date, StringFormat=d, ConverterCulture=ru-RU}"/>
+                <DataGridTextColumn Header="Кол-во товаров" Binding="{Binding ProductOrders.Count}"/>
+                <DataGridTextColumn Header="Этап" Binding="{Binding StatusOrder.Name}"/>
+                <DataGridTextColumn Header="Заказчик" Binding="{Binding Client.FIO}"/>
+                <DataGridTextColumn Header="Исполнитель" Binding="{Binding Worker.FIO}"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Page>

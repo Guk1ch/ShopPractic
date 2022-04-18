@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Collections.ObjectModel;
+using ShopPractic.DataBase;
 
 namespace ShopPractic.Pages
 {
@@ -19,10 +21,17 @@ namespace ShopPractic.Pages
     /// Логика взаимодействия для IntakesPage.xaml
     /// </summary>
     public partial class IntakesPage : Page
-    {
+    { 
+        public static ObservableCollection<ProductIntake> Intakes { get; set; }
+        public static ObservableCollection<ProductIntakeProduct> productIntakeProducts { get; set; }
+        public static ObservableCollection<Worker> workers { get; set; }
+       
         public IntakesPage()
         {
             InitializeComponent();
+            Intakes = new ObservableCollection<ProductIntake>(BD_Connection.connection.ProductIntake.ToList());
+            DataContext = this;
+
         }
 
         private void btn_AddInt_Click(object sender, RoutedEventArgs e)

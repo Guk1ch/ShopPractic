@@ -32,5 +32,8 @@
 
         <Image Source="/img/logo.png" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left"/>
 
+        <Button x:Name="btn_Back" Content="Назад"  Grid.Column="1" Grid.Row="0" VerticalAlignment="Bottom"  Background="#FFAD7261" BorderBrush="{x:Null}" Foreground="White" FontFamily="Arial" Click="btn_Back_Click"/>
+        <Button x:Name="btn_Save" Content="Сохранение"  Grid.Column="1" Grid.Row="0" VerticalAlignment="Top"  Background="#FFAD7261" BorderBrush="{x:Null}" Foreground="White" FontFamily="Arial" Click="btn_Save_Click"/>
+
     </Grid>
 </Page>

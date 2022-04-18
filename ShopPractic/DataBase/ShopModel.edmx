@@ -70,6 +70,7 @@
           <Property Name="SupplierId" Type="int" Nullable="false" />
           <Property Name="TotalAmount" Type="decimal" Precision="18" Scale="2" Nullable="false" />
           <Property Name="Data" Type="date" Nullable="false" />
+          <Property Name="StatusIntakeId" Type="int" />
         </EntityType>
         <EntityType Name="ProductIntakeProduct">
           <Key>
@@ -249,6 +250,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_ProductIntake_StatusIntake">
+          <End Role="StatusIntake" Type="Self.StatusIntake" Multiplicity="0..1" />
+          <End Role="ProductIntake" Type="Self.ProductIntake" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StatusIntake">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProductIntake">
+              <PropertyRef Name="StatusIntakeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_ProductIntake_Supplier">
           <End Role="Supplier" Type="Self.Supplier" Multiplicity="1" />
           <End Role="ProductIntake" Type="Self.ProductIntake" Multiplicity="*" />
@@ -395,6 +408,10 @@
             <End Role="Product" EntitySet="Product" />
             <End Role="ProductCountry" EntitySet="ProductCountry" />
           </AssociationSet>
+          <AssociationSet Name="FK_ProductIntake_StatusIntake" Association="Self.FK_ProductIntake_StatusIntake">
+            <End Role="StatusIntake" EntitySet="StatusIntake" />
+            <End Role="ProductIntake" EntitySet="ProductIntake" />
+          </AssociationSet>
           <AssociationSet Name="FK_ProductIntake_Supplier" Association="Self.FK_ProductIntake_Supplier">
             <End Role="Supplier" EntitySet="Supplier" />
             <End Role="ProductIntake" EntitySet="ProductIntake" />
@@ -514,6 +531,8 @@
           <Property Name="Data" Type="DateTime" Nullable="false" Precision="0" />
           <NavigationProperty Name="Supplier" Relationship="Self.FK_ProductIntake_Supplier" FromRole="ProductIntake" ToRole="Supplier" />
           <NavigationProperty Name="ProductIntakeProduct" Relationship="Self.FK_ProductIntakeProduct_ProductIntake" FromRole="ProductIntake" ToRole="ProductIntakeProduct" />
+          <Property Name="StatusIntakeId" Type="Int32" />
+          <NavigationProperty Name="StatusIntake" Relationship="ShopModel.FK_ProductIntake_StatusIntake" FromRole="ProductIntake" ToRole="StatusIntake" />
         </EntityType>
         <EntityType Name="ProductIntakeProduct">
           <Key>
@@ -555,6 +574,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="ProductIntakeProduct" Relationship="Self.FK_ProductIntakeProduct_StatusIntake" FromRole="StatusIntake" ToRole="ProductIntakeProduct" />
+          <NavigationProperty Name="ProductIntake" Relationship="ShopModel.FK_ProductIntake_StatusIntake" FromRole="StatusIntake" ToRole="ProductIntake" />
         </EntityType>
         <EntityType Name="StatusOrder">
           <Key>
@@ -886,7 +906,23 @@
             <End Role="User" EntitySet="User" />
             <End Role="Worker" EntitySet="Worker" />
           </AssociationSet>
+          <AssociationSet Name="FK_ProductIntake_StatusIntake" Association="ShopModel.FK_ProductIntake_StatusIntake">
+            <End Role="StatusIntake" EntitySet="StatusIntake" />
+            <End Role="ProductIntake" EntitySet="ProductIntake" />
+          </AssociationSet>
         </EntityContainer>
+        <Association Name="FK_ProductIntake_StatusIntake">
+          <End Type="ShopModel.StatusIntake" Role="StatusIntake" Multiplicity="0..1" />
+          <End Type="ShopModel.ProductIntake" Role="ProductIntake" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StatusIntake">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProductIntake">
+              <PropertyRef Name="StatusIntakeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -959,6 +995,7 @@
           <EntitySetMapping Name="ProductIntake">
             <EntityTypeMapping TypeName="ShopModel.ProductIntake">
               <MappingFragment StoreEntitySet="ProductIntake">
+                <ScalarProperty Name="StatusIntakeId" ColumnName="StatusIntakeId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
                 <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
