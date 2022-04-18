@@ -34,5 +34,10 @@ namespace ShopPractic.Pages
         {
             NavigationService.GoBack();
         }
+
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
