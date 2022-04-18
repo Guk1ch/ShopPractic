@@ -163,5 +163,15 @@ namespace ShopPractic.Pages
             actualPage++;
             Filter();
         }
+
+        private void btn_Orders_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new OrdersPage());
+        }
+
+        private void btn_Intakes_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new IntakesPage());
+        }
     }
 }

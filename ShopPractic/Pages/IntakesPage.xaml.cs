@@ -16,13 +16,23 @@ using System.Windows.Shapes;
 namespace ShopPractic.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для ListOrderPage.xaml
+    /// Логика взаимодействия для IntakesPage.xaml
     /// </summary>
-    public partial class ListOrderPage : Page
+    public partial class IntakesPage : Page
     {
-        public ListOrderPage()
+        public IntakesPage()
         {
             InitializeComponent();
+        }
+
+        private void btn_AddInt_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new ProdIntakePage());
+        }
+
+        private void btn_Back_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new ProductListPage());
         }
     }
 }
