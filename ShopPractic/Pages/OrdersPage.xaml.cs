@@ -42,7 +42,7 @@ namespace ShopPractic.Pages
 
         private void btn_Back_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new ProductListPage());
+            NavigationService.Navigate(new ProductListPage(ProductListPage.user));
         }
 
     }

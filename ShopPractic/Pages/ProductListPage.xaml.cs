@@ -26,7 +26,7 @@ namespace ShopPractic.Pages
         public static User user;
         public static int actualPage;
         public static ObservableCollection<DataBase.Product> products { get; set; }
-        public ProductListPage()
+        public ProductListPage( User uz)
         {
             
             InitializeComponent();
@@ -34,13 +34,22 @@ namespace ShopPractic.Pages
             
             var Prod = new Product();
             this.DataContext = this;
+            user = uz;
 
             var allUnit = new ObservableCollection<DataBase.Unit >(BD_Connection.connection.Unit.ToList());
             allUnit.Insert(0, new DataBase.Unit() { Id = -1, Name = "Все" });
             
             cb_unit.ItemsSource = allUnit;
             cb_unit.DisplayMemberPath = "Name";
-
+            if (user.RoleId == 2)
+            {
+                btn_Add.Visibility = Visibility.Hidden;
+            }
+            else if (user.RoleId == 3)
+            {
+                btn_Add.Visibility = Visibility.Hidden;
+                btn_Intakes.Visibility = Visibility.Hidden;
+            }
             
           
         }
@@ -53,9 +62,11 @@ namespace ShopPractic.Pages
 
         private void prod_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var n = (sender as ListView).SelectedItem as Product;
-
-            NavigationService.Navigate(new EditProductPage(n));
+            if (user.RoleId != 2 && user.RoleId != 3)
+            {
+                var n = (sender as ListView).SelectedItem as Product;
+                NavigationService.Navigate(new EditProductPage(n));
+            }
         }
 
         private void Btn_Add_Click(object sender, RoutedEventArgs e)

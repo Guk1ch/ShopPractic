@@ -35,7 +35,7 @@ namespace ShopPractic.Pages
 
         private void Btn_Back_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new ProductListPage());
+            NavigationService.Navigate(new ProductListPage(ProductListPage.user));
         }
 
         private void Btn_Save_Click(object sender, RoutedEventArgs e)

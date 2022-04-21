@@ -68,7 +68,7 @@ namespace ShopPractic.Pages
         {
             constProd.AddDate = DateTime.Now;
             DataBase.BD_Connection.connection.SaveChanges();
-            NavigationService.Navigate(new ProductListPage());
+            NavigationService.Navigate(new ProductListPage(ProductListPage.user));
         }
 
         private void Btn_ChangePhoto_Click(object sender, RoutedEventArgs e)
@@ -86,7 +86,7 @@ namespace ShopPractic.Pages
 
         private void Btn_Back_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new ProductListPage());
+            NavigationService.Navigate(new ProductListPage(ProductListPage.user));
         }
 
         private void Btn_Del_Click(object sender, RoutedEventArgs e)
@@ -94,7 +94,7 @@ namespace ShopPractic.Pages
             MessageBox.Show("Не надо дядя " + " НЯЯ!");
             constProd.IsDelete = true;
             BD_Connection.connection.SaveChanges();
-            NavigationService.Navigate(new Pages.ProductListPage());
+            NavigationService.Navigate(new Pages.ProductListPage(ProductListPage.user));
         }
 
         private void DelCountryBtn_Click(object sender, RoutedEventArgs e)
